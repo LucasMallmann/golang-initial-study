@@ -2,29 +2,23 @@ package main
 
 import "fmt"
 
-func sum(arr []int) int {
-	sum := 0
-	for _, val := range arr {
-		sum += val
+func reverse(arr []int) {
+	for i, j := 0, len(arr)-1; i < j; i, j = i+1, j-1 {
+		arr[i], arr[j] = arr[j], arr[i]
 	}
-	return sum
 }
 
-func mean(arr []int) float64 {
-	summed := sum(arr)
-	return float64(summed) / float64(len(arr))
-}
+func reversePointer(arr *[]int) {
+	for i, j := 0, len(*arr)-1; i < j; i, j = i+1, j+1 {
+		(*arr)[i], (*arr)[j] = (*arr)[j], (*arr)[i]
 
-func rev(v []int) {
-	for i, j := 0, len(v)-1; i < j; i, j = i+1, j-1 {
-		v[i], v[j] = v[j], v[i]
 	}
 }
 
 func main() {
-	arr := [...]int{1, 2, 3, 4, 5, 6, 7, 9, 10}
-
-	fmt.Println("Sum is ", sum(arr[:]))
-	fmt.Printf("Mean is %.2f", mean(arr[:]))
-
+	arr := []int{1, 2, 3, 4, 5, 6, 7, 9, 10}
+	newArr := []int{1, 2, 3, 4, 5, 6, 7, 9, 10}
+	reverse(arr)
+	reversePointer(&newArr)
+	fmt.Println(arr)
 }
