@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"image/color"
 
+	"gopl.io/ch6/coloredpoint"
 	"gopl.io/ch6/geometry"
 )
 
@@ -18,4 +20,6 @@ func main() {
 	fmt.Println(geometry.Distance(p, q))
 	fmt.Println(p.Distance(q))
 	fmt.Println(perimeter.Distance())
+
+	var cp = coloredpoint.ColoredPoint{geometry.Point{1, 1}, color.RGBA{0, 0, 255, 255}}
 }
